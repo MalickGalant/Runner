@@ -2,9 +2,32 @@
 <head>
 <meta name="viewport" content="width=device-width">
 <title>Maliek App</title>
+<script async src="https://cdn.ampproject.org/v0.js"></script>
+<!-- ## Setup -->
+<!--
+        All additionally used AMP components must be imported in the header. Import `amp-social-share` for adding share buttons-->
+<script async custom-element="amp-social-share" src="https://cdn.ampproject.org/v0/amp-social-share-0.1.js"></script>
+<!-- Import `amp-iframe` to embed an interactive chart -->
+<script async custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js"></script>
+<!-- Import `amp-carousel` to implement an image gallery -->
+<script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
+<!-- Import `amp-user-notification` to display a cookie notification -->
+<script async custom-element="amp-user-notification" src="https://cdn.ampproject.org/v0/amp-user-notification-0.1.js"></script>
+<!-- Import `amp-list` to get a fresh a list of related articles -->
+<script async custom-element="amp-list" src="https://cdn.ampproject.org/v0/amp-list-0.1.js"></script>
+<!-- Import `amp-mustache` as a format template for `amp-list` -->
+<script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"></script>
+<!-- Import `amp-analytics` for tracking usage -->
+<script async src="https://cdn.ampproject.org/v0.js"></script>
+      
+
 <script async custom-element="amp-fx-flying-carpet" src="https://cdn.ampproject.org/v0/amp-fx-flying-carpet-0.1.js"></script>
 <script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script>
+
+
 <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript>
+
+
 <style amp-custom>
 :root { 
 --color-secondary: #00DCC0; 
@@ -18,58 +41,100 @@ color: white;
           height: 100vh;
 background-color: var(--color-secondary);
       }
-    :root {
-      --color-error: #B00020;
-      --color-primary: #005AF0;
-    }
-    @font-face {
-      font-family: 'UnavailableFont';
-      font-style: normal;
-      font-weight: 400;
-      src: url(fonts/UnavailableFont.ttf) format('truetype');
-    }
-    @font-face {
-      font-family: 'Comic AMP';
-      font-style: normal;
-      font-weight: 400;
-      src: local('Comic AMP'), url(/static/samples/fonts/ComicAMP.ttf) format('truetype');
-    }
-    @font-face {
-      font-family: 'Comic AMP 2';
-      font-style: normal;
-      font-weight: 400;
-      src: local('Comic AMP'), url(/static/samples/fonts/ComicAMP2.ttf) format('truetype');
-    }
+          :body {
+          --color-primary: #005AF0;
+          --color-text-light: #fff;
+          --color-text-dark: #000;
+          --color-bg-light: #FAFAFC;
 
-    .unavailable-font-loaded .unavailable-font {
-      font-family: 'UnavailableFont';
-    }
-    .comicamp-loaded .comicamp {
-      font-family: 'Comic AMP';
-    }
-    .comicamp2-loaded .comicamp2 {
-      font-family: 'Comic AMP 2';
-    }
-    .comicamp-loading .comicamp,
-    .comicamp2-loading .comicamp2,
-    .unavailable-font-loading .unavailable-font {
-      color: var(--color-primary);
-    }
-    .comicamp-missing .comicamp,
-    .comicamp2-missing .comicamp2,
-    .unavailable-font-missing .unavailable-font {
-      color: var(--color-error);
-    }
-    </style>
+          --space-1: .5rem;  /* 8px */
+        
+          --box-shadow-1: 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 1px -1px rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+          }
+          .figure {
+            margin: var(--space-2) 0;
+            padding: 0;
+          }
+          .figure>figcaption{
+            padding: var(--space-1) var(--space-2);
+          }
+          .amp-ad-container {
+            display: flex;
+            margin: 0 auto;
+          }
+          .carousel .slide > amp-img > img {
+            object-fit: contain;
+          }
+          .heading {
+            padding-bottom: var(--space-1);
+          }
+          .heading h1 {
+            font-size: 3rem;
+            line-height: 3.5rem;
+            margin-bottom: var(--space-2);
+          }
+          .heading > #summary {
+            font-weight: 500;
+          }
+          .heading > small {
+            color: var(--color-primary);
+          }
+          .related {
+            background-color: var(--color-bg-light);
+            margin: var(--space-2);
+            display: flex;
+            color: var(--color-text-dark);
+            padding: 0;
+            box-shadow: var(--box-shadow-1);
+            text-decoration: none;
+          }
+          .related > span {
+            font-weight: 400;
+            margin: var(--space-1);
+          }
+          .related:hover {
+            background-color: var(--color-bg-light);
+          }
+          .cookie-disclaimer {
+            padding: var(--space-1);
+            background: var(--color-bg-light);
+            text-align: center;
+            color: var(--color-text-dark);
+            border-top: 1px solid var(--color-text-dark);
+          }
+        </style>
 </head>
 <body>
 
       <h1>Scroll</h1>
 
-      <div class="viewport-100"></div>
+      <div class="viewport-100">
+
+     
 
 
+      </div>
+      <!-- ## Embedding related content -->
 
+      <h2>Related Articles</h2>
+
+      <p>These articles might be interesting for you as well:</p>
+      <!-- It's a good idea to recommend related content to your readers. With `amp-list` it is possible to dynamically include personalized content into your AMPs. It's a good idea to link to the AMP version of related content in order to keep the user in the fast AMP world. Learn more about `amp-list` [here](/documentation/components/amp-list) -->
+      <amp-list width="300" height="75" layout="responsive" src="https://preview.amp.dev/static/samples/json/related_articles.json" binding="no">
+        <template type="amp-mustache">
+         <a class="related" href="{{url}}">
+          <amp-img width="101" height="75" src="{{thumbnail}}"></amp-img>
+          <span>{{title}}</span>
+         </a>
+        </template>
+      </amp-list>
+      </main>
+
+      
+
+      <!-- ## User analytics -->
+      <!-- Analytics must be configured in the body. Here we use Google Analytics to track pageviews.  -->
+      
       <!--
         `amp-fx-flying-carpet` elements must be positioned after the first viewport so make sure to place enough content before the element to cover the targeted viewport sizes. The box that follows is to ensure that the `amp-fx-flying-carpet` is placed after the first viewport.
 
@@ -117,6 +182,15 @@ background-color: var(--color-secondary);
 
       <div class="viewport-100"></div>
 
+
+
+
+      <!-- ## Cookie consent -->
+      <!-- Use `amp-user-notification` to implement a cookie consent form (if needed). By default, the AMP runtime doesn't use cookies. Some analytics vendors might use require cookies though. Learn more about `amp-user-notification` [here](/documentation/components/reference/amp-user-notification.html) -->
+      <amp-user-notification class="cookie-disclaimer" layout="nodisplay" id="amp-user-notification1">
+        This page might use cookies if your analytics vendor requires them.
+        <button on="tap:amp-user-notification1.dismiss">Accept</button>
+      </amp-user-notification>
 
       <!--
         ## Positioning
