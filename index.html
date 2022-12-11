@@ -1,11 +1,14 @@
 <html>
 <head>
-This is the head of your page
+
 <title>Example HTML</title>
 
+
+</head>
+
+
 <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript>
-<style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
-<style amp-custom> 
+<style amp-custom>
 :root { 
 --color-secondary: #00DCC0; 
       } 
@@ -63,38 +66,69 @@ background-color: var(--color-secondary);
     </style>
 </head>
 <body>
-<!-- ## Existing font -->
-  <!--
-    The [`amp-font`](/content/amp-dev/documentation/components/reference/amp-font-v0.1.md) components needs to be embedded inside the body or the head. Use the attribute `timeout` to specify the time in milliseconds to wait until the font becomes available. This attribute is optional and it's default value is 3000. Use `on-error-remove-class`, `on-error-add-class`, `on-load-remove-class`, `on-load-add-class` to specify the CSS classes to be used if the font loads correctly or not. This sample demonstrates that `amp-font` will add the class `comicamp-loaded` to the root element if the font is downloaded.
-  -->
-  <div>
-    <amp-font layout="nodisplay" font-family="Comic AMP" timeout="2000" on-error-remove-class="comicamp-loading" on-error-add-class="comicamp-missing" on-load-remove-class="comicamp-loading" on-load-add-class="comicamp-loaded">
-    </amp-font>
-    <p class="comicamp">
-      This text is displayed in red if the font `Comic AMP` is not available.
-    </p>
-  </div>
 
-  <!-- ## Unavailable font  -->
-  <!-- `amp-font` will add a class `unvailable-font-missing` to the root element in this sample. -->
-  <div>
-    <amp-font layout="nodisplay" font-family="UnavailableFont" timeout="2000" on-error-remove-class="unavailable-font-loading" on-error-add-class="unavailable-font-missing" on-load-remove-class="unavailable-font-loading" on-load-add-class="unavailable-font-loaded">
-    </amp-font>
-    <p class="unavailable-font">
-      This text is displayed in red if the font `UnavailableFont` is not available.
-    </p>
-  </div>
+      <strong>Scroll Down</strong>
 
-  <!-- ## Using only cached fonts -->
-  <!--
-    Set `timeout="0"` to load the font only if already in cache.
-  -->
-  <div>
-    <amp-font layout="nodisplay" font-family="Comic AMP 2" timeout="0" on-error-remove-class="comicamp2-loading" on-error-add-class="comicamp2-missing" on-load-remove-class="comicamp2-loading" on-load-add-class="comicamp2-loaded">
-    </amp-font>
-    <p class="comicamp2">
-      This text is displayed in red if the font `Comic AMP 2` is not cached.
-    </p>
-  </div>
+      <div class="viewport-100"></div>
+
+
+
+      <!--
+        `amp-fx-flying-carpet` elements must be positioned after the first viewport so make sure to place enough content before the element to cover the targeted viewport sizes. The box that follows is to ensure that the `amp-fx-flying-carpet` is placed after the first viewport.
+
+        <div class="viewport-100"></div>
+
+        ## Flying carpet for ads
+
+        `amp-fx-flying-carpet` can be used to display ads. Use the `height` parameter to specify the height of the flying carpets "window".
+      -->
+
+
+
+      <div>
+        <div class="amp-flying-carpet-text-border">Advertising</div>
+        <amp-fx-flying-carpet height="300px">
+          <amp-ad width="300" height="600" layout="fixed" type="doubleclick" data-slot="/35096353/amptesting/formats/flying_carpet">
+          </amp-ad>
+        </amp-fx-flying-carpet>
+        <div class="amp-flying-carpet-text-border">Advertising</div>
+      </div>
+
+
+      <div class="viewport-100"></div>
+
+
+
+      <!--
+        <div class="viewport-100"></div>
+
+        ## Flying carpet for images
+
+        `amp-fx-flying-carpet` can be also used to display images.
+      -->
+
+
+
+      <amp-fx-flying-carpet height="300px">
+        <amp-img src="https://preview.amp.dev/static/samples//img/landscape_lake_1280x857.jpg" width="1280" height="853" alt="an image">
+        </amp-img>
+      </amp-fx-flying-carpet>
+
+      <div class="viewport-100"></div>
+
+
+      <!--
+        ## Positioning
+
+        `amp-fx-flying-carpet` elements must be positioned before the last viewport so make sure to place enough content after the element to cover the targeted viewport sizes.
+
+        The box that follows is to ensure that the `amp-fx-flying-carpet` is placed before the last viewport.
+
+        <div class="viewport-100"></div>
+      -->
+
+
+
+
 </body>
 </html>
